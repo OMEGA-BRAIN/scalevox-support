@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SCALEVOX Support | OMEGA BRAIN</title>
+
+<style>
+:root{
+  --bg:#F4F6F1;
+  --green:#2E7D52;
+  --gold:#B07D10;
+  --sage:#8FB89A;
+  --text:#1A2E1F;
+  --sub:#4A6B54;
+  --muted:#8FAF98;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left,rgba(46,125,82,.12),transparent 30%),
+    radial-gradient(circle at top right,rgba(176,125,16,.10),transparent 26%),
+    linear-gradient(rgba(143,184,154,.13) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(143,184,154,.10) 1px,transparent 1px),
+    var(--bg);
+  background-size:auto,auto,46px 46px,46px 46px;
+  line-height:1.8;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 8% 18%,rgba(46,125,82,.08) 0 7%,transparent 8%),
+    radial-gradient(ellipse at 92% 26%,rgba(46,125,82,.07) 0 6%,transparent 7%),
+    radial-gradient(ellipse at 18% 88%,rgba(46,125,82,.07) 0 5%,transparent 6%),
+    radial-gradient(ellipse at 78% 82%,rgba(46,125,82,.06) 0 7%,transparent 8%);
+  opacity:.9;
+}
+.wrap{max-width:1320px;margin:auto;padding:18px}
+.shell{
+  position:relative;
+  border-radius:32px;
+  border:1px solid rgba(143,184,154,.45);
+  background:linear-gradient(145deg,rgba(255,255,255,.90),rgba(244,246,241,.94));
+  overflow:hidden;
+  box-shadow:0 24px 80px rgba(46,125,82,.13);
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 34px;
+  border-bottom:1px solid rgba(143,184,154,.28);
+}
+.logo-title{font-size:42px;font-weight:900;letter-spacing:.12em;color:var(--text)}
+.logo-sub{color:var(--muted);font-size:11px;letter-spacing:.28em;font-weight:800}
+.links{display:flex;gap:28px;color:var(--sub);font-size:15px;font-weight:700}
+.links a{color:inherit;text-decoration:none}
+.hero{
+  display:grid;
+  grid-template-columns:330px 1fr;
+  align-items:center;
+  gap:48px;
+  padding:54px 46px 64px;
+}
+.app-icon{
+  width:100%;
+  border-radius:44px;
+  box-shadow:0 20px 48px rgba(46,125,82,.24);
+}
+.icon-fallback{
+  width:100%;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  border-radius:44px;
+  border:1px solid rgba(143,184,154,.45);
+  background:
+    radial-gradient(circle at 30% 24%,rgba(255,255,255,.92),transparent 30%),
+    linear-gradient(145deg,#F8FAF6,#E8EFE7);
+  box-shadow:0 20px 48px rgba(46,125,82,.20);
+}
+.icon-fallback span{
+  color:var(--green);
+  font-size:108px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.center{text-align:center}
+.badge{
+  display:inline-block;
+  background:rgba(176,125,16,.13);
+  color:var(--gold);
+  font-weight:900;
+  padding:10px 24px;
+  border-radius:999px;
+  border:1px solid rgba(176,125,16,.25);
+  letter-spacing:.16em;
+  font-size:13px;
+  margin-bottom:22px;
+}
+h1{
+  font-size:clamp(68px,10vw,132px);
+  line-height:.9;
+  letter-spacing:.08em;
+  color:var(--text);
+  text-shadow:0 10px 34px rgba(46,125,82,.16);
+}
+.hero-sub{
+  margin-top:16px;
+  color:var(--green);
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.34em;
+}
+.lead{
+  max-width:780px;
+  margin:24px auto 0;
+  color:var(--sub);
+  font-size:21px;
+  line-height:1.9;
+}
+section{
+  margin:22px;
+  padding:28px;
+  border-radius:26px;
+  border:1px solid rgba(143,184,154,.30);
+  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(248,250,246,.82));
+  box-shadow:0 12px 36px rgba(46,125,82,.08);
+}
+h2{
+  color:var(--green);
+  margin-bottom:22px;
+  font-size:32px;
+  letter-spacing:.08em;
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.card,.step{
+  border-radius:20px;
+  border:1px solid rgba(143,184,154,.28);
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(244,246,241,.82));
+  padding:20px;
+}
+.step{text-align:center}
+.num{
+  width:40px;height:40px;
+  margin:0 auto 12px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--green);
+  color:white;
+  font-weight:900;
+  box-shadow:0 10px 20px rgba(46,125,82,.20);
+}
+.card h3,.step h3{
+  color:var(--gold);
+  margin-bottom:10px;
+  font-size:20px;
+}
+.card p,.step p,.notice{color:var(--sub)}
+.contact{
+  display:inline-block;
+  margin-top:18px;
+  padding:18px 28px;
+  border-radius:18px;
+  background:rgba(176,125,16,.08);
+  border:1px solid rgba(176,125,16,.28);
+  color:var(--gold);
+  font-size:28px;
+  font-weight:900;
+  box-shadow:0 12px 28px rgba(176,125,16,.12);
+  word-break:break-all;
+}
+.notice{margin-top:16px;line-height:1.9}
+footer{
+  padding:36px;
+  text-align:center;
+  color:var(--muted);
+  letter-spacing:.18em;
+  font-weight:700;
+}
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .app-icon,.icon-fallback{max-width:320px;margin:auto}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  nav{display:block;text-align:center}
+  .links{justify-content:center;flex-wrap:wrap;margin-top:16px}
+}
+@media(max-width:650px){
+  .wrap{padding:10px}
+  nav{padding:22px 18px}
+  .hero{padding:36px 20px 44px}
+  section{margin:14px;padding:20px}
+  .steps{grid-template-columns:1fr}
+  .links{gap:16px;font-size:13px}
+  .logo-title{font-size:34px}
+  .contact{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<div class="shell">
+
+<nav>
+  <div>
+    <div class="logo-title">SCALEVOX</div>
+    <div class="logo-sub">SCALE / THEORY / TUNING GUIDE</div>
+  </div>
+  <div class="links">
+    <span>How to Use</span>
+    <span>Features</span>
+    <span>FAQ</span>
+    <span>Privacy</span>
+    <span>Contact</span>
+    <a href="../">Japanese</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="app-icon" src="../app-icon.png" alt="SCALEVOX App Icon" onerror="this.replaceWith(document.getElementById('fallback-icon').content.cloneNode(true))">
+  <template id="fallback-icon"><div class="icon-fallback"><span>SV</span></div></template>
+
+  <div class="center">
+    <div class="badge">MUSIC REFERENCE SYSTEM</div>
+    <h1>SCALEVOX</h1>
+    <div class="hero-sub">OFFICIAL SUPPORT</div>
+    <p class="lead">
+      SCALEVOX is a reference app for musicians who need quick access to scales, music theory, and tuning information. It helps you check the notes you need while composing, performing, practicing, or producing music.
+    </p>
+  </div>
+</div>
+
+<section>
+<h2>HOW TO USE</h2>
+<div class="steps">
+  <div class="step"><div class="num">1</div><h3>Choose a Key</h3><p>Select the root note you want to use as your reference.</p></div>
+  <div class="step"><div class="num">2</div><h3>Select a Scale</h3><p>Browse major, minor, modes, pentatonic scales, and world scales.</p></div>
+  <div class="step"><div class="num">3</div><h3>Check Notes</h3><p>View the scale tones as text or on a piano keyboard.</p></div>
+  <div class="step"><div class="num">4</div><h3>Use Theory</h3><p>Reference key signatures, intervals, the circle of fifths, and more.</p></div>
+  <div class="step"><div class="num">5</div><h3>Check Tunings</h3><p>Look up tunings for guitar, bass, ukulele, strings, and world instruments.</p></div>
+  <div class="step"><div class="num">6</div><h3>Use It Anywhere</h3><p>Keep it close during practice, writing, recording, and live work.</p></div>
+</div>
+</section>
+
+<section>
+<h2>FEATURES</h2>
+<div class="grid">
+  <div class="card"><h3>SCALE REFERENCE</h3><p>Quickly check notes for essential scales and more advanced scale types.</p></div>
+  <div class="card"><h3>PIANO VIEW</h3><p>See scale tones visually on a keyboard for fast, intuitive reference.</p></div>
+  <div class="card"><h3>THEORY GUIDE</h3><p>Reference pitch, key signatures, intervals, chord-scale ideas, and the circle of fifths.</p></div>
+  <div class="card"><h3>TUNING GUIDE</h3><p>Find tunings for guitar, bass, ukulele, classical strings, folk instruments, and more.</p></div>
+</div>
+</section>
+
+<section>
+<h2>FAQ</h2>
+<div class="grid">
+  <div class="card"><h3>Do I need to sign in?</h3><p>No. SCALEVOX can be used without login or account registration.</p></div>
+  <div class="card"><h3>Does the app record audio?</h3><p>No. SCALEVOX does not record, analyze, or upload audio.</p></div>
+  <div class="card"><h3>Can I use it offline?</h3><p>The app's core scale, theory, and tuning references are available inside the app.</p></div>
+  <div class="card"><h3>What if I find incorrect information?</h3><p>Please contact us with the scale name, tuning item, or theory entry in question.</p></div>
+</div>
+</section>
+
+<section>
+<h2>CONTACT</h2>
+<p>For bug reports, content questions, and support requests, please contact:</p>
+<div class="contact">omegabrain.app@gmail.com</div>
+</section>
+
+<section>
+<h2>PRIVACY POLICY</h2>
+<p class="notice">
+SCALEVOX does not collect audio, images, location data, contacts, or account information inside the app. Login and account registration are not required. Information related to ads, in-app purchases, or App Store purchase processing may be handled through Apple or advertising provider systems.
+</p>
+</section>
+
+<footer>© OMEGA BRAIN / SCALEVOX</footer>
+
+</div>
+</div>
+</body>
+</html>
